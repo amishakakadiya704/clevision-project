@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Student Results</h1>
+    <h2> enter student name:</h2>
+    <ul>
+        {students.map((student, index) => (
+            <li key={index}>
+                <strong>{student.name}</strong> - {student.marks} - {student.passed ? 'Passed' : 'Failed'} - {student.subject}
+            </li>
+        ))}
+    </ul>
+
+</body>
+</html>

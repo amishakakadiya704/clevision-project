@@ -1,0 +1,123 @@
+
+
+body {
+    background-color: #f4f6f9;
+}
+
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Logo Styling */
+.nav-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #555555;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #007bff; /* Accent color on hover */
+}
+
+/* Mobile Hamburger Button (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #333333;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Media Query (Mobile & Tablets) */
+@media screen and (max-width: 768px) {
+    /* Show hamburger icon */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Transform nav links into a mobile dropdown menu */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* When JavaScript adds the .active class, expand the menu */
+    .nav-links.active {
+        max-height: 300px; /* Adjust based on content size */
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-item {
+        display: block;
+        padding: 20px 0;
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+    }
+
+    .nav-links li:last-child .nav-item {
+        border-bottom: none;
+    }
+
+    /* Hamburger to 'X' animation when active */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
